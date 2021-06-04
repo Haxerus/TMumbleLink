@@ -1,0 +1,8 @@
+displayName = TMumbleLink
+author = Haxerus
+version = 0.1
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
+hideCode = false
+hideResources = false
+includeSource = true
+includePDB = true
