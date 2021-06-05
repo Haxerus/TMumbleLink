@@ -12,6 +12,7 @@ namespace TMumbleLink
     class LinkPlayer : ModPlayer
     {
         private LinkedMem lm;
+        private uint tick;
 
         public override void PreUpdate()
         {
@@ -21,7 +22,6 @@ namespace TMumbleLink
             Player player = Main.LocalPlayer;
 
             var file = TMumbleLink.instance.OpenLinkFile();
-
 
             if (lm.uiVersion != 2)
             {
@@ -41,33 +41,33 @@ namespace TMumbleLink
                 lm.uiVersion = 2;
             }
 
-            lm.uiTick++;
+            lm.uiTick = tick;
 
             lm.fAvatarPosition[0] = (player.position.X / 16f) * 0.6096f;
             lm.fAvatarPosition[1] = -(player.position.Y / 16f) * 0.6096f;
-            lm.fAvatarPosition[2] = 0f;
+            lm.fAvatarPosition[2] = 1.0f;
 
-            lm.fAvatarTop[0] = 0f;
-            lm.fAvatarTop[1] = 1f;
-            lm.fAvatarTop[2] = 0f;
+            lm.fAvatarTop[0] = 0.0f;
+            lm.fAvatarTop[1] = 1.0f;
+            lm.fAvatarTop[2] = 0.0f;
 
-            lm.fAvatarFront[0] = 0f;
-            lm.fAvatarFront[1] = 0f;
-            lm.fAvatarFront[2] = 1f;
+            lm.fAvatarFront[0] = 0.0f;
+            lm.fAvatarFront[1] = 0.0f;
+            lm.fAvatarFront[2] = 1.0f;
 
             lm.fCameraPosition[0] = (player.position.X / 16f) * 0.6096f;
             lm.fCameraPosition[1] = -(player.position.Y / 16f) * 0.6096f;
-            lm.fCameraPosition[2] = 0f;
+            lm.fCameraPosition[2] = 1.0f;
 
-            lm.fCameraTop[0] = 0f;
-            lm.fCameraTop[1] = 1f;
-            lm.fCameraTop[2] = 0f;
+            lm.fCameraTop[0] = 0.0f;
+            lm.fCameraTop[1] = 1.0f;
+            lm.fCameraTop[2] = 0.0f;
 
-            lm.fCameraFront[0] = 0f;
-            lm.fCameraFront[1] = 0f;
-            lm.fCameraFront[2] = 1f;
+            lm.fCameraFront[0] = 0.0f;
+            lm.fCameraFront[1] = 0.0f;
+            lm.fCameraFront[2] = 1.0f;
 
-            if (file != null)
+            if (file != null && tick++ > 0)
                 file.Write(lm);
         }
 
