@@ -12,7 +12,7 @@ namespace TMumbleLink
     class LinkPlayer : ModPlayer
     {
         private LinkedMem lm;
-        private uint tick;
+        private uint tick = 0;
 
         public override void PreUpdate()
         {
@@ -27,6 +27,7 @@ namespace TMumbleLink
             {
                 StringBuilder nameSB = new StringBuilder("TMumbleLink", 256);
                 StringBuilder descSB = new StringBuilder("TMumbleLink adds Positional Audio support for Terraria.", 2048);
+                StringBuilder idSB = new StringBuilder(player.name, 256);
 
                 lm.fAvatarPosition = new float[3];
                 lm.fAvatarTop = new float[3];
@@ -35,6 +36,13 @@ namespace TMumbleLink
                 lm.fCameraPosition = new float[3];
                 lm.fCameraTop = new float[3];
                 lm.fCameraFront = new float[3];
+
+                lm.context = new byte[256];
+
+                Array.Copy(Encoding.UTF8.GetBytes("tmumblelink"), lm.context, 11);
+                lm.context_len = 11;
+
+                lm.identity = idSB.ToString();
 
                 lm.name = nameSB.ToString();
                 lm.description = descSB.ToString();
@@ -69,30 +77,6 @@ namespace TMumbleLink
 
             if (file != null && tick++ > 0)
                 file.Write(lm);
-        }
-
-        public override void OnEnterWorld(Player player)
-        {
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-                return;
-
-            if (player == Main.LocalPlayer)
-            {
-                StringBuilder idSB = new StringBuilder(player.name, 256);
-                lm.identity = idSB.ToString();
-                lm.context = new byte[256];
-
-                lm.fAvatarPosition = new float[3];
-                lm.fAvatarTop = new float[3];
-                lm.fAvatarFront = new float[3];
-
-                lm.fCameraPosition = new float[3];
-                lm.fCameraTop = new float[3];
-                lm.fCameraFront = new float[3];
-
-                Array.Copy(Encoding.UTF8.GetBytes("tmumblelink"), lm.context, 11);
-                lm.context_len = 11;
-            }
         }
 
         private void debugPrint()

@@ -45,6 +45,7 @@ namespace TMumbleLink
                 if (disposing)
                 {
                     file.Dispose();
+                    file = null;
                 }
 
                 disposed = true;

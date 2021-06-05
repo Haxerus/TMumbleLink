@@ -35,7 +35,6 @@ namespace TMumbleLink
             if (file == null)
             {
                 file = new MumbleLinkFile();
-                Logger.Debug("New Link File Created");
             }
 
             return file;
