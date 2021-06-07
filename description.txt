@@ -1,1 +1,10 @@
-Adds Positional Audio support through Mumble Link.
+Adds Positional Audio support through Mumble Link. This allows you to hear other players in a voice chat get louder or quieter based on position and distance.
+
+You need to install the Mumble voice chat client for this mod to work. See the Forum Post or GitHub for Mumble setup instructions.
+
+This mod is client side only.
+
+Changelog
+
+v1.0
+- Release

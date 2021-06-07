@@ -45,13 +45,15 @@ namespace TMumbleLink
                 if (disposing)
                 {
                     file.Dispose();
-                    file = null;
                 }
 
                 disposed = true;
             }
         }
 
+        /*
+         * Converts a LinkedMem instance into a byte array to be written to the link file
+         */
         private byte[] getBytes(LinkedMem lm)
         {
             int size = Marshal.SizeOf(lm);
