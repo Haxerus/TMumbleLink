@@ -5,6 +5,8 @@ This mod is meant to be used with the [Mumble](http://mumble.info) chat client.
 
 Note: This mod is client-side only so you don't need to install it on a server. Also, the mod only works in multiplayer for obvious reasons.
 
+[Terraria Community Forum Post](https://forums.terraria.org/index.php?threads/tmumblelink-positional-audio-support-for-terraria.105899/)
+
 ## Requirements
 * [Terraria](https://store.steampowered.com/app/105600/Terraria/)
 * [tModLoader](https://store.steampowered.com/app/1281930/tModLoader/)
