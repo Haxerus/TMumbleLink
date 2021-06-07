@@ -26,13 +26,10 @@ namespace TMumbleLink
 
             /*
              * Initialize static data needed for the link file
+             * TODO: Find out how to make this not get called everytime any player joins
              */
             if (!initComplete)
             {
-                /*StringBuilder nameSB = new StringBuilder("TMumbleLink", 256);
-                StringBuilder descSB = new StringBuilder("TMumbleLink adds Positional Audio support for Terraria.", 2048);
-                StringBuilder idSB = new StringBuilder(player.name, 256);*/
-
                 lm.context = new byte[256];
                 Array.Copy(Encoding.UTF8.GetBytes("tmumblelink"), lm.context, 11);
                 lm.context_len = 11;
@@ -42,8 +39,6 @@ namespace TMumbleLink
                 lm.name = "Terraria";
                 lm.description = "TMumbleLink adds Positional Audio support for Terraria.";
                 lm.uiVersion = 2;
-
-                Main.NewText("Mumble Linked!", new Color(255, 240, 20));
 
                 initComplete = true;
             }
@@ -68,6 +63,14 @@ namespace TMumbleLink
 
             if (file != null && initComplete)
                 file.Write(lm);
+        }
+
+        public override void OnEnterWorld(Player player)
+        {
+            if (player.whoAmI == Main.myPlayer)
+            {
+                Main.NewText("Mumble Linked!", new Color(255, 240, 20));
+            }
         }
     }
 }

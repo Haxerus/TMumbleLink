@@ -6,5 +6,8 @@ This mod is client side only.
 
 Changelog
 
+v1.0.1
+- Added Mod Icon
+
 v1.0
 - Release
