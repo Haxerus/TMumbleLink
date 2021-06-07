@@ -19,6 +19,11 @@ namespace TMumbleLink
             instance = null;
         }
 
+        /*
+         * Free the Memory Mapped File when the player disconnects
+         * Note: This doesn't get called if the server is closed before the player disconnects.
+         * There is no work around due to tModLoader limitations.
+         */
         public override void PreSaveAndQuit()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)

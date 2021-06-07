@@ -1,9 +1,10 @@
 displayName = TMumbleLink
 author = Haxerus
 version = 1.0
-buildIgnore = *.sln, *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, .gitignore, *.md
+buildIgnore = *.sln, *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, docs\*, .gitignore, *.md
 hideCode = false
 hideResources = false
 includeSource = true
 includePDB = true
 side=Client
+homepage=https://github.com/Haxerus/TMumbleLink

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Text;
 using Terraria;
 using Terraria.ID;
@@ -38,9 +39,11 @@ namespace TMumbleLink
 
                 lm.identity = player.name;
 
-                lm.name = "TMumbleLink";
+                lm.name = "Terraria";
                 lm.description = "TMumbleLink adds Positional Audio support for Terraria.";
                 lm.uiVersion = 2;
+
+                Main.NewText("Mumble Linked!", new Color(255, 240, 20));
 
                 initComplete = true;
             }
