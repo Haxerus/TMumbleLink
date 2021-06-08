@@ -67,6 +67,9 @@ namespace TMumbleLink
 
         public override void OnEnterWorld(Player player)
         {
+			if (Main.netMode != NetmodeID.MultiplayerClient)
+                return;
+			
             if (player.whoAmI == Main.myPlayer)
             {
                 Main.NewText("Mumble Linked!", new Color(255, 240, 20));
